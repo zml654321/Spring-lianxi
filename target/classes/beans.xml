@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--bean就是java对象 , 由Spring创建和管理-->
+    <bean id="hello" class="com.chb.pojo.Hello">
+        <property name="name" value="Spring"/>
+    </bean>
+    <bean id="MySqlImpl" class="com.chb.dao.UserDaoMySqlImpl"/>
+    <bean id="OracleImpl" class="com.chb.dao.UserDaoOracleImpl"/>
+    <bean id="ServiceImpl" class="com.chb.service.UserServiceImpl">
+        <property name="userDao" ref="MySqlImpl"/>
+    </bean>
+    <bean id="user" class="com.chb.pojo.User">
+        <property name="name" value="kuangshen"/>
+    </bean>
+</beans>
